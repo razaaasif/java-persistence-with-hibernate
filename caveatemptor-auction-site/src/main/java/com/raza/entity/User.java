@@ -18,8 +18,8 @@ public class User implements Serializable {
 		this.username = username;
 	}
 
-	public BigDecimal calcShippingCosts(Address fromLocation) {
-		return null;
-	}
+//	public BigDecimal calcShippingCosts(Address fromLocation) {
+//		return null;
+//	}
 
 }

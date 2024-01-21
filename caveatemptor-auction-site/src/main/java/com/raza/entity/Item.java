@@ -1,26 +1,20 @@
 package com.raza.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
-@org.hibernate.annotations.Cache(usage = org.hibernate.annotations.CacheConcurrencyStrategy.READ_WRITE)
+@org.hibernate.annotations.GenericGenerator(name = "ID_GENERATOR", strategy = "enhanced_sequence", parameters = {
+		@org.hibernate.annotations.Parameter(name = "sequence_name", value = "ITEM_SEQUENCE"),
+		@org.hibernate.annotations.Parameter(name = "initial_value", value = "1000") })
+
 public class Item {
-	protected Set<Bid> bids = new HashSet<>();
+	@Id
+	@GeneratedValue(generator = "ID_GENERATOR")
+	protected Long id;
 
-	public Set<Bid> getBids() {
-		return bids;
+	public Long getId() {
+		return id;
 	}
-
-	public void addBid(Bid bid) {
-		if (bid == null)
-			throw new NullPointerException("Can't add null Bid");
-		if (bid.getItem() != null)
-			throw new IllegalStateException("Bid is already assigned to an Item");
-		getBids().add(bid);
-		bid.setItem(this);
-	}
-
 }

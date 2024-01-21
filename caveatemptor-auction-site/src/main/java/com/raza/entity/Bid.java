@@ -5,7 +5,6 @@ public class Bid {
 
 	public Bid(Item item) {
 		this.item = item;
-		this.item.getBids().add(this);
 	}
 
 	public Item getItem() {
