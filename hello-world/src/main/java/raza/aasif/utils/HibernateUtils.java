@@ -5,20 +5,35 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class HibernateUtils {
-	private static SessionFactory sessionFactory = null;
+
+	private static volatile SessionFactory sessionFactory = null;
+
+	private HibernateUtils() {
+		// Private constructor to prevent instantiation
+	}
 
 	public static SessionFactory getSessionFactory() {
-		if (null == sessionFactory) {
-			sessionFactory = new MetadataSources(
-					new StandardServiceRegistryBuilder()
-					.configure("hibernate.cfg.xml")
-					.build()
-					)
-					.buildMetadata()
-					.buildSessionFactory();
-
+		if (sessionFactory == null) {
+			synchronized (HibernateUtils.class) {
+				if (sessionFactory == null) {
+					try {
+						sessionFactory = new MetadataSources(
+								new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build())
+								.buildMetadata().buildSessionFactory();
+					} catch (Exception e) {
+						// Log the exception or handle it as needed
+						e.printStackTrace();
+						throw new RuntimeException("Error building SessionFactory: " + e.getMessage(), e);
+					}
+				}
+			}
 		}
 		return sessionFactory;
 	}
 
+	public static void closeSessionFactory() {
+		if (sessionFactory != null && !sessionFactory.isClosed()) {
+			sessionFactory.close();
+		}
+	}
 }
