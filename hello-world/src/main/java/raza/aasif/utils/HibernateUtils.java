@@ -19,7 +19,7 @@ public class HibernateUtils {
 					try {
 						sessionFactory = new MetadataSources(
 								new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build())
-								.buildMetadata().buildSessionFactory();
+								.getMetadataBuilder().build().getSessionFactoryBuilder().build();
 					} catch (Exception e) {
 						// Log the exception or handle it as needed
 						e.printStackTrace();
