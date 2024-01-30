@@ -8,23 +8,19 @@
 		<class>com.raza.entity.User</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
-			<property name="javax.persistence.jdbc.driver"
-				value="com.postgres.Driver" />
-			<property name="javax.persistence.jdbc.url"
-				value="jdbc:postgresql://localhost:3306/jpa_learning" />
-			<property name="javax.persistence.jdbc.user"
-				value="postgres" />
-			<property name="javax.persistence.jdbc.password"
-				value="postgres" />
+	
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/jpa_learning" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="postgres" />
+			<property name="hibernate.id.new_generator_mappings" value="true"/>
 
-			<property
-				name="javax.persistence.schema-generation.database.action"
-				value="none" />
+			<property name="javax.persistence.schema-generation.database.action" value="update" />
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.use_sql_comments" value="true" />
 			<!-- naming strategy for table -->
-			<property name="hibernate.physical_naming_strategy" value=""/>
+			<property name="hibernate.physical_naming_strategy" value="com.raza.shared.CENamingStrategy"/>
 		</properties>
 	</persistence-unit>
 </persistence>

@@ -1,17 +1,15 @@
 package com.raza.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Bid {
-	protected Item item;
+	@Id
+	private Long id;
 
-	public Bid(Item item) {
-		this.item = item;
+	public Bid() {
+		// Auto-generated constructor stub
 	}
 
-	public Item getItem() {
-		return this.item;
-	}
-
-	public void setItem(Item item) {
-		this.item = item;
-	}
 }

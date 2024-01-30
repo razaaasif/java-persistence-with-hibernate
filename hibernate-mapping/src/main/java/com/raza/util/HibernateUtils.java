@@ -1,4 +1,4 @@
-package raza.aasif.utils;
+package com.raza.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;

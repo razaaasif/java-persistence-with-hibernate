@@ -9,13 +9,28 @@ import raza.aasif.utils.HibernateUtils;
 public class App {
 	public static void main(String[] args) {
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
-		Message message = new Message();
-		message.setText("Haha");
-		Transaction tr = session.getTransaction();
-		tr.begin();
-		session.persist(message);
-		tr.commit();
-		session.close();
-		System.out.println(message);
+		Transaction tx = session.getTransaction();
+
+//		Message message = new Message();
+//		message.setText("Haha");
+//		session.save(message);
+//		session.getTransaction().commit();
+//		System.out.println(message);
+
+		try {
+			tx.begin();
+			Message m = session.get(Message.class, 2L);
+			System.out.println(m);
+			session.delete(m);
+			tx.commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (tx != null) {
+				tx.rollback();
+			}
+		} finally {
+			session.close();
+		}
 	}
 }
