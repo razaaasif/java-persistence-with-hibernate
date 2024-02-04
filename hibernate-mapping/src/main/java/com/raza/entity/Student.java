@@ -20,7 +20,7 @@ public class Student {
 	private String name;
 
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
-	@JoinColumn(name = "guide_id")
+	@JoinColumn(name = "guide_id" , nullable = false)
 	private Guide guide;
 
 	public Student() {

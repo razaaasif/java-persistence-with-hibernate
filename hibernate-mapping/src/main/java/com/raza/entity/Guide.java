@@ -23,7 +23,7 @@ public class Guide {
 	@Column
 	private Integer salary;
 
-	@OneToMany(mappedBy = "guide", cascade = { CascadeType.PERSIST })
+	@OneToMany(mappedBy = "guide", cascade = { CascadeType.PERSIST },orphanRemoval = true)
 	private Set<Student> students = new HashSet<>();
 
 	public Guide() {
@@ -49,6 +49,11 @@ public class Guide {
 	public String toString() {
 		return "Guide [id=" + id + ", name=" + name + ", staffId=" + staffId + ", salary=" + salary + ", students="
 				+ students + "]";
+	}
+
+	public void addStudent(Student student1) {
+		 this.students.add(student1);
+		 student1.setGuide(this);
 	}
 	
 	
