@@ -19,6 +19,7 @@
 		<mapping class="com.raza.entity.Person" />
 		<mapping class="com.raza.entity.Student" />
 		<mapping class="com.raza.entity.Guide" />
-
+		<mapping class="com.raza.entity.Customer" />
+		<mapping class="com.raza.entity.Passport" />
 	</session-factory>
 </hibernate-configuration>
