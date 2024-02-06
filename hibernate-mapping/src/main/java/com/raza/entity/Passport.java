@@ -11,7 +11,4 @@ public class Passport {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@OneToOne(mappedBy = "passport")
-	private Customer customer;
 }

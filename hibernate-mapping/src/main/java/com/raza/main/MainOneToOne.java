@@ -14,8 +14,11 @@ public class MainOneToOne {
 		try {
 			transaction.begin();
 			Passport passport = new Passport();
-			Customer customer = new Customer("Aamir Raza 3", passport);
+			Customer customer = new Customer("Aamir Raza 4", passport);
 			session.persist(customer);
+			Passport passport1 = new Passport();
+			Customer customer2 = new Customer("Aamir Raza 5", passport1);
+			session.persist(customer2);
 
 			transaction.commit();
 

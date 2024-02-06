@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.TableGenerator;
 
@@ -14,13 +15,14 @@ import javax.persistence.TableGenerator;
 public class Customer {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "custom_table")
-	@TableGenerator(name = "custom_table", pkColumnName = "seq_column", pkColumnValue = "seq_customer", table = "seq_table", allocationSize = 99, valueColumnName = "seq_value", initialValue = 0)
+//	@GeneratedValue(strategy = GenerationType.TABLE, generator = "custom_table")
+//	@TableGenerator(name = "custom_table", pkColumnName = "seq_column", pkColumnValue = "seq_customer", table = "seq_table", allocationSize = 99, valueColumnName = "seq_value", initialValue = 0)
 	private Long id;
 	@Column(unique = true)
 	private String name;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "passport_id", nullable = false)
+	@MapsId
 	private Passport passport;
 
 	public Customer() {
