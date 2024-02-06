@@ -21,5 +21,7 @@
 		<mapping class="com.raza.entity.Guide" />
 		<mapping class="com.raza.entity.Customer" />
 		<mapping class="com.raza.entity.Passport" />
+		<mapping class="com.raza.entity.Movie" />
+		<mapping class="com.raza.entity.Actor" />
 	</session-factory>
 </hibernate-configuration>
