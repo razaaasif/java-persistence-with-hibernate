@@ -23,5 +23,8 @@
 		<mapping class="com.raza.entity.Passport" />
 		<mapping class="com.raza.entity.Movie" />
 		<mapping class="com.raza.entity.Actor" />
+		<mapping class="com.raza.entity.Employee" />
+		<mapping class="com.raza.entity.Friend" />
+
 	</session-factory>
 </hibernate-configuration>
