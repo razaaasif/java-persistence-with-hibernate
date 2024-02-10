@@ -25,6 +25,8 @@
 		<mapping class="com.raza.entity.Actor" />
 		<mapping class="com.raza.entity.Employee" />
 		<mapping class="com.raza.entity.Friend" />
+		<mapping class="com.raza.entity.Child" />
+		<mapping class="com.raza.entity.Parent" />
 
 	</session-factory>
 </hibernate-configuration>
