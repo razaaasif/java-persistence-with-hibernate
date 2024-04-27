@@ -21,7 +21,11 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.5.6.Final</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jakarta-xmlbind-annotations</artifactId>
+			<version>2.14.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
