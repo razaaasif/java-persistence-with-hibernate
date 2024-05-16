@@ -9,9 +9,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
+@NamedQuery(
+		name="Guide.findAll",
+		query="select g from Guide g"
+		)
 public class Guide {
 
 	@Id
